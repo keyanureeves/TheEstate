@@ -15,6 +15,11 @@
     "hardhat": "^2.24.3"
   },
   "dependencies": {
-    "@openzeppelin/contracts": "^5.3.0"
+    "@chainlink/contracts": "^1.4.0",
+    "@chainlink/contracts-ccip": "^1.6.0",
+    "@openzeppelin/contracts": "^5.3.0",
+    "@tailwindcss/postcss": "^4.1.11",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.11"
   }
 }

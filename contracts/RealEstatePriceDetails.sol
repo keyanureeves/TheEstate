@@ -14,7 +14,8 @@ import {FunctionsSource} from "./FunctionsSource.sol";
 contract RealEstatePriceDetails is FunctionsClient, FunctionsSource, OwnerIsCreator {
     using FunctionsRequest for FunctionsRequest.Request;
 
-    struct PriceDetails {
+    //checkout encoding and decoding of structs 
+    struct PriceDetails {  
         uint80 listPrice;
         uint80 originalListPrice;
         uint80 taxAssessedValue;
@@ -38,6 +39,8 @@ contract RealEstatePriceDetails is FunctionsClient, FunctionsSource, OwnerIsCrea
     function setAutomationForwarder(address automationForwarderAddress) external onlyOwner {
         s_automationForwarderAddress = automationForwarderAddress;
     }
+
+    //manual and automatic price details updates  // called daily
 
     function updatePriceDetails(string memory tokenId, uint64 subscriptionId, uint32 gasLimit, bytes32 donID)
         external

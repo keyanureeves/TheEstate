@@ -2,7 +2,8 @@
 pragma solidity 0.8.24;
 
 import {ERC1155Supply, ERC1155} from "@openzeppelin/contracts/token/ERC1155/extensions/ERC1155Supply.sol";
-import {OwnerIsCreator} from "@chainlink/contracts-ccip/src/v0.8/shared/access/OwnerIsCreator.sol";
+import "@chainlink/contracts-ccip/src/v0.8/shared/access/OwnerIsCreator.sol";
+
 
 /**
  * THIS IS AN EXAMPLE CONTRACT THAT USES HARDCODED VALUES FOR CLARITY.
@@ -12,12 +13,15 @@ import {OwnerIsCreator} from "@chainlink/contracts-ccip/src/v0.8/shared/access/O
 contract ERC1155Core is ERC1155Supply, OwnerIsCreator {
     address internal s_issuer;
 
-    // Optional mapping for token URIs
-    mapping(uint256 tokenId => string) private _tokenURIs; //stores the ipfs cache //
+    // Optional mapping for token URIs // maps out the tokenID to the ipfs cache 
+    mapping(uint256 tokenId => string) private _tokenURIs;
 
     event SetIssuer(address indexed issuer);
 
     error ERC1155Core_CallerIsNotIssuerOrItself(address msgSender);
+
+
+    
 
     modifier onlyIssuerOrItself() {
         if (msg.sender != address(this) && msg.sender != s_issuer) {
@@ -34,6 +38,8 @@ contract ERC1155Core is ERC1155Supply, OwnerIsCreator {
 
         emit SetIssuer(_issuer);
     }
+
+    //***mint functions***
 
     function mint(address _to, uint256 _id, uint256 _amount, bytes memory _data, string memory _tokenUri)
         public
@@ -56,6 +62,9 @@ contract ERC1155Core is ERC1155Supply, OwnerIsCreator {
         }
     }
 
+
+    //***burn functions***
+
     function burn(address account, uint256 id, uint256 amount) public onlyIssuerOrItself {
         if (account != _msgSender() && !isApprovedForAll(account, _msgSender())) {
             revert ERC1155MissingApprovalForAll(_msgSender(), account);
@@ -72,11 +81,16 @@ contract ERC1155Core is ERC1155Supply, OwnerIsCreator {
         _burnBatch(account, ids, amounts);
     }
 
-    function uri(uint256 tokenId) public view override returns (string memory) { //overrides the uri mapping and shows the content of the mapping 
+    //function uri gets the property metadata 
+    function uri(uint256 tokenId) public view override returns (string memory) { 
         string memory tokenURI = _tokenURIs[tokenId];
 
         return bytes(tokenURI).length > 0 ? tokenURI : super.uri(tokenId);
+        
     }
+
+
+
 
     function _setURI(uint256 tokenId, string memory tokenURI) internal {
         _tokenURIs[tokenId] = tokenURI;

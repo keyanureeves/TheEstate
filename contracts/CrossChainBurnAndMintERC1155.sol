@@ -94,6 +94,8 @@ contract CrossChainBurnAndMintERC1155 is ERC1155Core, IAny2EVMMessageReceiver, R
         i_currentChainSelector = currentChainSelector;
     }
 
+    //enables communication between different chains 
+
     function enableChain(uint64 chainSelector, address xNftAddress, bytes memory ccipExtraArgs)
         external
         onlyOwner
@@ -103,6 +105,8 @@ contract CrossChainBurnAndMintERC1155 is ERC1155Core, IAny2EVMMessageReceiver, R
 
         emit ChainEnabled(chainSelector, xNftAddress, ccipExtraArgs);
     }
+
+    // disables communication between chains 
 
     function disableChain(uint64 chainSelector) external onlyOwner onlyOtherChains(chainSelector) {
         delete s_chains[chainSelector];
@@ -121,10 +125,11 @@ contract CrossChainBurnAndMintERC1155 is ERC1155Core, IAny2EVMMessageReceiver, R
     ) external nonReentrant onlyEnabledChain(destinationChainSelector) returns (bytes32 messageId) {
         string memory tokenUri = uri(id);
         burn(from, id, amount);
+        // the ccip message 
 
         Client.EVM2AnyMessage memory message = Client.EVM2AnyMessage({
             receiver: abi.encode(s_chains[destinationChainSelector].xNftAddress),
-            data: abi.encode(from, to, id, amount, data, tokenUri),
+            data: abi.encode(from, to, id, amount, data, tokenUri),                  
             tokenAmounts: new Client.EVMTokenAmount[](0),
             extraArgs: s_chains[destinationChainSelector].ccipExtraArgsBytes,
             feeToken: payFeesIn == PayFeesIn.LINK ? address(i_linkToken) : address(0)
