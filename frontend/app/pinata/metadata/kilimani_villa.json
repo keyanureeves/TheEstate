@@ -1,0 +1,11 @@
+{
+  "name": "Kilimani Villa #4",
+  "description": "Luxury villa in the Kilimani district ideal for high-end investors.",
+  "image": "ipfs://bafybeiabcdefghi123456kilimanivillaimg",
+  "propertyId": 1,
+  "totalTokens": 200,
+  "tokenPrice": "20000000000000000",
+  "dividendPayout": "Quarterly",
+  "expectedReturn": "7.5% annually",
+  "isNonFungible": false
+}

@@ -1,0 +1,11 @@
+{
+  "name": "Diani Beach Bungalow",
+  "description": "Seaside investment property with holiday rental potential.",
+  "image": "ipfs://bafybeiabcdefghi123456dianibungalowimg",
+  "propertyId": 4,
+  "totalTokens": 120,
+  "tokenPrice": "30000000000000000",
+  "dividendPayout": "Bi-Annually",
+  "expectedReturn": "10% annually",
+  "isNonFungible": false
+}

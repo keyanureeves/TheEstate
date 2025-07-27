@@ -19,7 +19,7 @@ const Hero = () => {
         {/* Hero Image */}
         <div>
           <img
-            src="/homesvg.svg" // Replace with actual path or use import
+            src="/file.svg" // Replace with actual path or use import
             alt="Modern House"
             className="w-full rounded-lg shadow-lg"
           />

@@ -1,0 +1,11 @@
+{
+  "name": "Garden Towers Penthouse",
+  "description": "Elegant penthouse offering panoramic city views in Upper Hill.",
+  "image": "ipfs://bafybeiabcdefghi123456gardentowerimg",
+  "propertyId": 2,
+  "totalTokens": 50,
+  "tokenPrice": "50000000000000000",
+  "dividendPayout": "Annually",
+  "expectedReturn": "6.2% annually",
+  "isNonFungible": true
+}

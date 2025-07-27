@@ -1,0 +1,13 @@
+{
+  "name": "Westlands Executive Office Suite",
+  "description": "Commercial property targeting corporate tenants in prime Nairobi location.",
+  "image": "ipfs://bafybeiabcdefghi123456westlandsofficeimg",
+  "propertyId": 5,
+  "totalTokens": 75,
+  "tokenPrice": "25000000000000000",
+  "dividendPayout": "Monthly",
+  "expectedReturn": "6.8% annually",
+  "isNonFungible": false
+}
+
+
