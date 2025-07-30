@@ -32,7 +32,7 @@ const Navbar = () => {
           <FaSearch className="w-5 h-5" />
           <FaUser className="w-5 h-5" />
           <button className="bg-[#2B1B12] text-white px-4 py-2 rounded-md hover:bg-[#3c2b1c]">
-            Add Listing
+            Connect Wallet
           </button>
         </div>
 
