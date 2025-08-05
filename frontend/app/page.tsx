@@ -17,7 +17,6 @@ export default function Home (){
       <WhyChooseUs/>
       <PopularResidences/>
       <Footer/>
-
     </main>
   )
 }
