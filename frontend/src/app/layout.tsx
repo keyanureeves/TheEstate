@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Providers from "./providers";
 import Header from "./components/header"; // ✅ Correct import (capitalized)
+import Footer from "./components/footer"; // ✅ Footer import
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,6 +29,7 @@ export default async function RootLayout({
           {/* ✅ Header visible on every page */}
           <Header />
           {children}
+          <Footer />
         </Providers>
       </body>
     </html>

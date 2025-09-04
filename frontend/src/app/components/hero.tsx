@@ -36,7 +36,7 @@ export default function Hero() {
         {/* Right Image / Graphic */}
         <div className="flex-1">
           <img
-            src="/file.svg" // 👉 put a custom image in /public
+            src="/housesvg.svg" // 👉 put a custom image in /public
             alt="Real Estate Illustration"
             className="w-full max-w-md mx-auto"
           />
